@@ -73,9 +73,13 @@ body {
 }
 
 .main-text-gray {
-    @apply text-base text-[var(--text-secondary)] font-normal;
+    @apply text-[10px] text-[var(--text-secondary)] font-normal;
 }
 
 .sub-text {
     @apply text-[12px] text-[var(--text-secondary)];
+}
+
+.sub-text-white {
+    @apply text-sm text-[var(--text-primary)] font-bold;
 }
