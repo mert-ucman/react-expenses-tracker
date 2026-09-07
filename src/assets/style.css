@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url("./fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+:root {
+    /* Background */
+    --bg-main: #0D141F;
+    --bg-sidebar: #0F172A;
+    --bg-card: #131B28;
+    --bg-card-hover: #172033;
+
+    /* Primary */
+    --primary: #6366F1;
+    --primary-light: #818CF8;
+    --primary-dark: #4F46E5;
+
+    /* Logo */
+    --logo: #4169FC;
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+
+    /* Borders */
+    --border: #1c2735;
+
+    /* Status */
+    --success: #22C55E;
+    --danger: #EF4444;
+    --warning: #F59E0B;
+
+    /* Chart / Categories */
+    --food: #F59E0B;
+    --transport: #3B82F6;
+    --shopping: #EC4899;
+    --bills: #8B5CF6;
+    --entertainment: #14B8A6;
+
+    /* Icons */
+    --icon-bg-blue: #18345B;
+    --icon-bg-green: #16443D;
+    --icon-bg-purple: #302F5F;
+
+    /* Roundeds */
+
+    --rounded-xs: 2px;
+    --rounded-sm: 4px;
+    --rounded-md: 6px;
+    --rounded-lg: 8px;
+    --rounded-xl: 12px;
+    --rounded-2xl: 16px;
+}
+
+.xy-center {
+    @apply flex justify-center items-center;
+}
+
+.main-text {
+    @apply text-base text-[var(--text-primary)] font-normal;
+}
+
+.main-text-gray {
+    @apply text-base text-[var(--text-secondary)] font-normal;
+}
+
+.sub-text {
+    @apply text-[12px] text-[var(--text-secondary)];
+}
