@@ -20,6 +20,7 @@ body {
     --bg-sidebar: #0F172A;
     --bg-card: #131B28;
     --bg-card-hover: #172033;
+    --bg-input: #1A2331;
 
     /* Primary */
     --primary: #6366F1;
@@ -36,6 +37,7 @@ body {
 
     /* Borders */
     --border: #1c2735;
+    --border-hover:#2b3543;
 
     /* Status */
     --success: #22C55E;
@@ -50,6 +52,9 @@ body {
     --entertainment: #14B8A6;
 
     /* Icons */
+    --icon-blue:#50B4FD;
+    --icon-green:#8EF8D8;
+    --icon-purple:#AE9DFC;
     --icon-bg-blue: #18345B;
     --icon-bg-green: #16443D;
     --icon-bg-purple: #302F5F;
@@ -86,4 +91,13 @@ body {
 
 .sub-text-white {
     @apply text-sm text-[var(--text-primary)] font-bold;
+}
+
+.main-div {
+    @apply h-full flex bg-[var(--bg-card)] rounded-[var(--rounded-xl)] border-[var(--border)] border p-2 gap-x-2;
+}
+
+.expenseInput {
+    @apply bg-[var(--bg-input)] rounded-[var(--rounded-md)] border-[var(--border)] border text-[10px] p-2 placeholder:text-xs focus:outline-1
+    focus:outline-[var(--border-hover)] flex flex-1 min-w-0;
 }

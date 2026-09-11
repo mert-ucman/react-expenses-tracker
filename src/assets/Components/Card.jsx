@@ -1,30 +1,30 @@
 import IconWrapper from "./IconWrapper";
 
 
-function Card({icon,iconColor,type,percentage,percentageColor,amount,subText,iconStatus,color,rounded,extraClass}) {
+function Card({icon,data}) {
     return (
-        <div className={`w-auto h-auto`}>
-            <div className="h-full flex bg-[var(--bg-card)] rounded-[var(--rounded-xl)] border-[var(--border)] border p-2 gap-x-2">
+        <div className="w-auto h-auto">
+            <div className="main-div">
                 <div className="flex flex-col justify-between">
                     <IconWrapper 
-                        icon={icon}
-                        iconColor={iconColor}
-                        color={color}
-                        rounded={rounded}
+                        icon={icon.icon}
+                        iconColor={icon.iconColor}
+                        color={icon.bgColor}
+                        rounded={icon.rounded}
                     />
-                    <div className={`flex items-center gap-x-0.5 ${percentageColor}`}>
+                    <div className={`flex items-center gap-x-0.5 ${data.percentageColor}`}>
                         {
-                            iconStatus && (<i className="fa-solid fa-hammer fa-2xs"></i>)
+                            icon.iconStatus && (<i className="fa-solid fa-arrow-trend-up fa-2xs"></i>)
                         }
-                        <p className="text-[10px]">{percentage}</p>
+                        <p className="text-[10px]">{data.percentage}</p>
                     </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                    <div className={`${extraClass}`}>
-                        <h3 className={`main-text-gray`}>{type}</h3>
-                        <p className="sub-text-white">{amount}</p>
+                    <div>
+                        <h3 className={`main-text-gray`}>{data.type}</h3>
+                        <p className="sub-text-white">{data.amount}</p>
                     </div>
-                    <p className="sub-text text-[8px]!">{subText}</p>
+                    <p className="sub-text text-[8px]!">{data.subText}</p>
                 </div>
             </div>
         </div>
