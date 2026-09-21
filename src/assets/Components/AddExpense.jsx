@@ -3,7 +3,7 @@ import IconWrapper from "./IconWrapper";
 
 function AddExpense() {
     return (
-        <div className="main-div flex-col gap-y-2">
+        <div className="main-div flex-col gap-y-2 h-fit!">
             <div className="flex gap-x-2">
                 <IconWrapper
                     icon={`fa-solid fa-plus fa-md`}

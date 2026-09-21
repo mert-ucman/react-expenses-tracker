@@ -94,7 +94,7 @@ function TrackerWindow() {
                     />
                 </div>
                 <AddExpense />
-                <div className="flex flex-col main-div">
+                <div className="flex flex-col main-div min-h-85">
                     <div className="flex justify-between border-b-1 pb-4 border-[var(--border)] mb-2">
                         <div className="flex gap-x-2">
                             <IconWrapper
@@ -117,8 +117,187 @@ function TrackerWindow() {
                             <option value="all">Yaşam&Sağlık</option>
                         </select>
                     </div>
-                    <div className="">
+                    <div className="h-full overflow-scroll">
                         <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-coffee fa-sm`}
+                                    color={`bg-[#55463A]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Kahve</h3>
+                                    <p className="sub-text text-[10px]!">4 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺120</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-bag-shopping fa-sm`}
+                                    color={`bg-[#1D6750]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Market</h3>
+                                    <p className="sub-text text-[10px]!">3 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺850</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-tv fa-sm`}
+                                    color={`bg-[#46408B]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Netflix</h3>
+                                    <p className="sub-text text-[10px]!">2 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺200</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-bus fa-sm`}
+                                    color={`bg-[#1B416F]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Ulaşım</h3>
+                                    <p className="sub-text text-[10px]!">1 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺40</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-dna fa-sm`}
+                                    color={`bg-[#A7434F]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Sağlık</h3>
+                                    <p className="sub-text text-[10px]!">31 Ağustos 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺300</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-coffee fa-sm`}
+                                    color={`bg-[#55463A]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Kahve</h3>
+                                    <p className="sub-text text-[10px]!">4 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺120</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-bag-shopping fa-sm`}
+                                    color={`bg-[#1D6750]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Market</h3>
+                                    <p className="sub-text text-[10px]!">3 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺850</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-tv fa-sm`}
+                                    color={`bg-[#46408B]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Netflix</h3>
+                                    <p className="sub-text text-[10px]!">2 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺200</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between border-b border-[var(--border)] py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-bus fa-sm`}
+                                    color={`bg-[#1B416F]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Ulaşım</h3>
+                                    <p className="sub-text text-[10px]!">1 Eylül 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺40</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div className="flex justify-between py-1">
+                            <div className="flex gap-x-2">
+                                <IconWrapper
+                                    icon={`fa-solid fa-dna fa-sm`}
+                                    color={`bg-[#A7434F]`}
+                                    iconColor={`text-white`}
+                                    rounded={`rounded-full`}
+                                />
+                                <div className="flex flex-col justify-between">
+                                    <h3 className="main-text text-[12px]!">Sağlık</h3>
+                                    <p className="sub-text text-[10px]!">31 Ağustos 2026</p>
+                                </div>
+                            </div>
+                            <div className="flex xy-center gap-x-4">
+                                <p className="text-[#F16D71] font-bold">₺300</p>
+                                <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                            </div>
+                        </div><div className="flex justify-between border-b border-[var(--border)] py-1">
                             <div className="flex gap-x-2">
                                 <IconWrapper
                                     icon={`fa-solid fa-coffee fa-sm`}
