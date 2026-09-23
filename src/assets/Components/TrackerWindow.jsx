@@ -6,7 +6,7 @@ import BottomNavBar from "./BottomNavBar";
 
 function TrackerWindow() {
     return (
-        <div className="h-dvh flex flex-col overflow-hidden scrollbar-none">
+        <div className="h-dvh flex flex-col overflow-hidden scrollbar-none max-w-[1200px] mx-auto">
             <div className="flex flex-col flex-1 p-4 gap-y-4 min-h-0 overflow-y-auto h-max scrollbar-none">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-x-3">
