@@ -2,15 +2,9 @@ import { createContext, useReducer } from "react";
 import expenseReducer from "../Reducers/expenseReducer";
 
 
-const ExpenseContext = createContext();
+export const ExpenseContext = createContext();
 const initialState = {
-    expenses: {
-        id: 0,
-        title: "",
-        amount: 0,
-        category: "",
-        date: ""
-    }
+    expenses: []
 };
 
 function ExpenseContextProvider({ children }) {

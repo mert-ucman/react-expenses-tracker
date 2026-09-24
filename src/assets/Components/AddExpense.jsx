@@ -1,7 +1,14 @@
 import IconWrapper from "./IconWrapper";
-
+import { useContext,useState } from "react";
+import { ExpenseContext } from "../Context/ExpenseContext"; 
 
 function AddExpense() {
+
+    const [title,setTitle] = useState("");
+    const [amount,setAmount] = useState("");
+    const [category,setCategory] = useState("");
+
+
     return (
         <div className="main-div flex-col gap-y-2 h-fit!">
             <div className="flex gap-x-2">
@@ -18,10 +25,14 @@ function AddExpense() {
 
             </div>
             <div className="flex gap-x-2">
-                <input type="text" name="expenseName" id="expenseName" placeholder="Örn. Fatura" className="expenseInput" />
-                <input type="text" name="expenseValue" id="expenseValue" placeholder="₺0" className="expenseInput" />
-                <select className="expenseInput" name="expenseType" id="expenseType">
-                    <option value="food">Yiyecek</option>
+                <input type="text" name="expenseName" id="expenseName" placeholder="Örn. Fatura" className="expenseInput" onChange={()=>setTitle(title)}/>
+                <input type="text" name="expenseValue" id="expenseValue" placeholder="₺0" className="expenseInput" onChange={()=>setAmount(amount)}/>
+                <select className="expenseInput" name="expenseType" id="expenseType" onChange={()=>setCategory(category)}>
+                    <option value="market">Market</option>
+                    <option value="transport">Ulaşım</option>
+                    <option value="spor">Spor</option>
+                    <option value="health">Sağlık</option>
+                    <option value="other">Diğer</option>
                 </select>
             </div>
             <button
