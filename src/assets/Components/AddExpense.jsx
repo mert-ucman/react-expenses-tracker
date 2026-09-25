@@ -1,13 +1,42 @@
 import IconWrapper from "./IconWrapper";
-import { useContext,useState } from "react";
-import { ExpenseContext } from "../Context/ExpenseContext"; 
+import { useContext, useState } from "react";
+import { ExpenseContext } from "../Context/ExpenseContext";
 
 function AddExpense() {
 
-    const [title,setTitle] = useState("");
-    const [amount,setAmount] = useState("");
-    const [category,setCategory] = useState("");
+    const { dispatch } = useContext(ExpenseContext);
 
+    const [title, setTitle] = useState("");
+    const [amount, setAmount] = useState("");
+    const [category, setCategory] = useState("");
+
+    function handleAddExpense() {
+        if (title.trim() === "") {
+            alert("Harcama adı boş olamaz !");
+            return;
+        }
+        if (amount === "" || amount <= 0) {
+            alert("Geçerli bir tutar giriniz !");
+            return;
+        }
+        if (category === "") {
+            alert("Lütfen kategori seçiniz !")
+            return;
+        }
+        dispatch({
+            type: "ADD_EXPENSE",
+            payload: {
+                id: Date.now(),
+                title: title,
+                amount: Number(amount),
+                category: category,
+                date: new Date().toLocaleDateString("tr-TR")
+            }
+        })
+        setTitle("");
+        setAmount("");
+        setCategory("");
+    }
 
     return (
         <div className="main-div flex-col gap-y-2 h-fit!">
@@ -25,9 +54,10 @@ function AddExpense() {
 
             </div>
             <div className="flex gap-x-2">
-                <input type="text" name="expenseName" id="expenseName" placeholder="Örn. Fatura" className="expenseInput" onChange={()=>setTitle(title)}/>
-                <input type="text" name="expenseValue" id="expenseValue" placeholder="₺0" className="expenseInput" onChange={()=>setAmount(amount)}/>
-                <select className="expenseInput" name="expenseType" id="expenseType" onChange={()=>setCategory(category)}>
+                <input value={title} type="text" name="expenseName" id="expenseName" placeholder="Örn. Fatura" className="expenseInput" onChange={(e) => setTitle(e.target.value)} />
+                <input value={amount} type="number" name="expenseValue" id="expenseValue" placeholder="₺0" className="expenseInput" onChange={(e) => setAmount(e.target.value)} />
+                <select value={category} className="expenseInput" name="expenseType" id="expenseType" onChange={(e) => setCategory(e.target.value)}>
+                    <option value="" disabled>Seçiniz</option>
                     <option value="market">Market</option>
                     <option value="transport">Ulaşım</option>
                     <option value="spor">Spor</option>
@@ -35,10 +65,10 @@ function AddExpense() {
                     <option value="other">Diğer</option>
                 </select>
             </div>
-            <button
+            <button onClick={handleAddExpense}
                 className="flex flex-1 xy-center gap-x-2 bg- p-2 rounded-lg bg-gradient-to-r from-[#4169FC] to-[#6654D9] outline outline-1 outline-transparent hover:outline-[#7C8FFF] hover:shadow-[0_0_20px_rgba(65,105,252,0.25)] transition-all duration-200 hover:cursor-pointer"><i className="fa-solid fa-plus fa-md"></i>Harcama Ekle
             </button>
-        </div>
+        </div >
     )
 }
 

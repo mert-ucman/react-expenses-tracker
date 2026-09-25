@@ -9,7 +9,6 @@ import { ExpenseContext } from "../Context/ExpenseContext";
 function TrackerWindow() {
 
     const { state } = useContext(ExpenseContext);
-    console.log(state.expenses);
 
     return (
         <div className="h-dvh flex flex-col overflow-hidden scrollbar-none max-w-[1200px] mx-auto">
