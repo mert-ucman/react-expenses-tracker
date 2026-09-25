@@ -10,6 +10,21 @@ function TrackerWindow() {
 
     const { state } = useContext(ExpenseContext);
 
+    const totalExpense = state.expenses.reduce((total, expense) => total + expense.amount, 0)
+
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
+
+
+    let expensesForThisMonth = [];
+    state.expenses.forEach((expense) => {
+        const newDate = new Date(expense.date);
+        if (currentMonth === newDate.getMonth() && currentYear === newDate.getFullYear()) {
+            expensesForThisMonth = [...expensesForThisMonth, expense.amount];
+        }
+    })
+    const monthTotal = expensesForThisMonth.reduce((total, expense) => total + expense, 0);
+
     return (
         <div className="h-dvh flex flex-col overflow-hidden scrollbar-none max-w-[1200px] mx-auto">
             <div className="flex flex-col flex-1 p-4 gap-y-4 min-h-0 overflow-y-auto h-max scrollbar-none">
@@ -48,7 +63,7 @@ function TrackerWindow() {
                         data={
                             {
                                 type: `Toplam Harcama`,
-                                amount: `₺1.170`,
+                                amount: `₺${totalExpense}`,
                                 subText: `Geçen haftaya göre`,
                                 percentage: `%12`,
                                 percentageColor: `text-[var(--success)]`
@@ -69,7 +84,7 @@ function TrackerWindow() {
                         data={
                             {
                                 type: `Bu Ay`,
-                                amount: `₺3.250`,
+                                amount: `₺${monthTotal}`,
                                 subText: `Geçen aya göre`,
                                 percentage: `%8`,
                                 percentageColor: `text-[var(--danger)]`

@@ -30,7 +30,7 @@ function AddExpense() {
                 title: title,
                 amount: Number(amount),
                 category: category,
-                date: new Date().toLocaleDateString("tr-TR")
+                date: new Date().toISOString()
             }
         })
         setTitle("");
