@@ -29,7 +29,7 @@ export default ExpenseContextProvider;
 // Uygulamanın verisi başlangıçta ne? → initialState
 
 //expenseReducer'daki olaylar gerçekleştiğinde return edilen duruma göre state dönecek o state'i de state'e atacak
-//Yeni React'a şunu diyoruz, Benim bir state'im olacak (expenseReducer'dan return edilen). Bu state'in nasıl değişeceğine expenseReducer karar verecek ve başlangıç değeri de initialState olacak.
+//Yani React'a şunu diyoruz, Benim bir state'im olacak (expenseReducer'dan return edilen). Bu state'in nasıl değişeceğine expenseReducer karar verecek ve başlangıç değeri de initialState olacak.
 
 //state → mevcut veri
 //dispatch → state'in değiştirilmesini istemek için kullanılacak fonksiyon

@@ -105,7 +105,7 @@ function TrackerWindow() {
                         data={
                             {
                                 type: `Harcama Sayıs`,
-                                amount: `12`,
+                                amount: `${expensesForThisMonth.length}`,
                                 subText: `Bu ay toplam`,
                                 percentage: `%8`,
                                 percentageColor: `text-[var(--danger)]`
@@ -131,11 +131,11 @@ function TrackerWindow() {
                             </div>
                             <select name="expenseFilter" id="expenseFilter" className="expenseInput max-w-fit">
                                 <option value="all">Tümü</option>
-                                <option value="all">Beslenme</option>
-                                <option value="all">Eğlence</option>
-                                <option value="all">Ulaşım</option>
-                                <option value="all">Eğitim</option>
-                                <option value="all">Yaşam&Sağlık</option>
+                                <option value="market">Market</option>
+                                <option value="transport">Ulaşım</option>
+                                <option value="spor">Spor</option>
+                                <option value="health">Sağlık</option>
+                                <option value="other">Diğer</option>
                             </select>
                         </div>
                         <div className="h-full overflow-scroll scrollbar-none">
