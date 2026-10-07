@@ -104,7 +104,7 @@ function TrackerWindow() {
                         }
                         data={
                             {
-                                type: `Harcama Sayıs`,
+                                type: `Harcama Sayısı`,
                                 amount: `${expensesForThisMonth.length}`,
                                 subText: `Bu ay toplam`,
                                 percentage: `%8`,
