@@ -8,7 +8,7 @@ import { ExpenseContext } from "../Context/ExpenseContext";
 
 function TrackerWindow() {
 
-    const { state } = useContext(ExpenseContext);
+    const { state,dispatch } = useContext(ExpenseContext);
 
     const totalExpense = state.expenses.reduce((total, expense) => total + expense.amount, 0)
 
@@ -24,6 +24,14 @@ function TrackerWindow() {
         }
     })
     const monthTotal = expensesForThisMonth.reduce((total, expense) => total + expense, 0);
+
+    function deleteExpense(id){
+        dispatch({
+            type:"DELETE_EXPENSE",
+            payload: id
+        })
+        
+    }
 
     return (
         <div className="h-dvh flex flex-col overflow-hidden scrollbar-none max-w-[1200px] mx-auto">
@@ -156,7 +164,9 @@ function TrackerWindow() {
                                         </div>
                                         <div className="flex xy-center gap-x-4">
                                             <p className="text-[#F16D71] font-bold">₺{expense.amount}</p>
-                                            <i className="fa-solid fa-chevron-right fa-xs text-gray-500"></i>
+                                            <button onClick={()=>deleteExpense(expense.id)} className="bg-gray-500 shadow rounded-full w-7 h-7 xy-center hover:bg-gray-600">
+                                                <i className="fa-solid fa-close fa-sm"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 ))
