@@ -3,12 +3,13 @@ import AddExpense from "./AddExpense";
 import IconWrapper from "./IconWrapper";
 import Donut from "./PieChart";
 import BottomNavBar from "./BottomNavBar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ExpenseContext } from "../Context/ExpenseContext";
 
 function TrackerWindow() {
 
-    const { state,dispatch } = useContext(ExpenseContext);
+    const { state, dispatch } = useContext(ExpenseContext);
+    const [filter, setFilter] = useState("all");
 
     const totalExpense = state.expenses.reduce((total, expense) => total + expense.amount, 0)
 
@@ -25,12 +26,12 @@ function TrackerWindow() {
     })
     const monthTotal = expensesForThisMonth.reduce((total, expense) => total + expense, 0);
 
-    function deleteExpense(id){
+    function deleteExpense(id) {
         dispatch({
-            type:"DELETE_EXPENSE",
+            type: "DELETE_EXPENSE",
             payload: id
         })
-        
+
     }
 
     return (
@@ -137,7 +138,7 @@ function TrackerWindow() {
                                     <p className="sub-text text-[10px]!">Tüm harcamalarını gör.</p>
                                 </div>
                             </div>
-                            <select name="expenseFilter" id="expenseFilter" className="expenseInput max-w-fit">
+                            <select onChange={() => setFilter(filter)} name="expenseFilter" id="expenseFilter" className="expenseInput max-w-fit">
                                 <option value="all">Tümü</option>
                                 <option value="market">Market</option>
                                 <option value="transport">Ulaşım</option>
@@ -148,28 +149,32 @@ function TrackerWindow() {
                         </div>
                         <div className="h-full overflow-scroll scrollbar-none">
                             {
-                                state.expenses.map((expense) => (
-                                    <div key={expense.id} className="flex justify-between border-b border-[var(--border)] py-1">
-                                        <div className="flex gap-x-2">
-                                            <IconWrapper
-                                                icon={expense.icon}
-                                                color={`bg-[#55463A]`}
-                                                iconColor={`text-white`}
-                                                rounded={`rounded-full`}
-                                            />
-                                            <div className="flex flex-col justify-between">
-                                                <h3 className="main-text text-[12px]!">{expense.title}</h3>
-                                                <p className="sub-text text-[10px]!">{expense.date}</p>
+                                state.expenses.map((expense) => {
+                                    if (expense.category === filter) {
+                                        return (
+                                            <div key={expense.id} className="flex justify-between border-b border-[var(--border)] py-1">
+                                                <div className="flex gap-x-2">
+                                                    <IconWrapper
+                                                        icon={expense.icon}
+                                                        color={`bg-[#55463A]`}
+                                                        iconColor={`text-white`}
+                                                        rounded={`rounded-full`}
+                                                    />
+                                                    <div className="flex flex-col justify-between">
+                                                        <h3 className="main-text text-[12px]!">{expense.title}</h3>
+                                                        <p className="sub-text text-[10px]!">{expense.date}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex xy-center gap-x-4">
+                                                    <p className="text-[#F16D71] font-bold">₺{expense.amount}</p>
+                                                    <button onClick={() => deleteExpense(expense.id)} className="bg-gray-500 shadow rounded-full w-7 h-7 xy-center hover:bg-gray-600">
+                                                        <i className="fa-solid fa-close fa-sm"></i>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="flex xy-center gap-x-4">
-                                            <p className="text-[#F16D71] font-bold">₺{expense.amount}</p>
-                                            <button onClick={()=>deleteExpense(expense.id)} className="bg-gray-500 shadow rounded-full w-7 h-7 xy-center hover:bg-gray-600">
-                                                <i className="fa-solid fa-close fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))
+                                        )
+                                    }
+                                })
                             }
                         </div>
                     </div>
